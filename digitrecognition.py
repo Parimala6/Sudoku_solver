@@ -32,6 +32,8 @@ model.add(Flatten())
 model.add(Dense(100, activation='relu', kernel_initializer='he_uniform'))
 model.add(Dense(10, activation='softmax'))
 
+model.summary()
+
 ##compile and fit
 model.compile(optimizer='adam', loss='sparse_categorical_crossentropy',
               metrics=['accuracy'])
@@ -41,6 +43,5 @@ model.evaluate(x_test, y_test)
 
 # save model and architecture to single file
 model.save("model.h5")
-print("Saved model to disk")
 
 
