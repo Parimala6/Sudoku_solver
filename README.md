@@ -1,2 +1,9 @@
 # Sudoku_solver
-OpenCV_Python_CNN
+
+Solving Sudoku with OpenCV_Python_CNN:
+1) Image processing:
+  
+2) Cells extraction
+3) Solving the puzzle
+
+
