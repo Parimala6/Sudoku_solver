@@ -2,6 +2,6 @@
 
 Solving Sudoku with OpenCV_Python_CNN 
 
-![sudoku_puzzle](http://url/to/img.png)
+![sudoku_puzzle](https://github.com/Parimala6/Sudoku_solver/blob/main/images/sudoku4.jpg)
 
 
