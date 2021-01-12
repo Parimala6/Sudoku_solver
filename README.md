@@ -25,14 +25,14 @@ Finding the largest contour in the image i.e., sudoku:
 Finding the corners and extracting the ROI:  
 <img src="https://github.com/Parimala6/Sudoku_solver/blob/main/images/Extracted_sudoku.jpg" width="300">
 
-Extracting all the cells of the grid:
+Extracting all the cells of the grid:  
 <img src="https://github.com/Parimala6/Sudoku_solver/blob/main/images/Grid.jpg" width="300">
 
 Extracted cell:  
-<img src="https://github.com/Parimala6/Sudoku_solver/blob/main/gridcells/cell03.jpg" width="300">
+<img src="https://github.com/Parimala6/Sudoku_solver/blob/main/gridcells/cell03.jpg" width="100">
 
 Extracting and recognizing the digits in the cell:  
-<img src="https://github.com/Parimala6/Sudoku_solver/blob/main/Cleanedcells/cell03.png" width="300">
+<img src="https://github.com/Parimala6/Sudoku_solver/blob/main/Cleanedcells/cell03.png" width="100">
 
 Solved Sudoku:  
 <img src="https://github.com/Parimala6/Sudoku_solver/blob/main/images/Solved_sudoku.jpg" width="300">  
