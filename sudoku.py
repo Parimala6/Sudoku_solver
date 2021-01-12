@@ -37,8 +37,7 @@ def scale_and_centre(img, size, margin=30, background=0):
         t_pad, b_pad = centre_pad(h)
 
     img = cv2.resize(img, (w, h))
-    img = cv2.copyMakeBorder(img, t_pad, b_pad, l_pad, r_pad,
-                             cv2.BORDER_CONSTANT, None)
+    img = cv2.copyMakeBorder(img, t_pad, b_pad, l_pad, r_pad, cv2.BORDER_CONSTANT, None)
     return cv2.resize(img, (size, size))
 
     
@@ -68,8 +67,7 @@ cv2.imshow('blur', blur_img)
 ##cv2.imwrite('images/Blur.jpg', blur_img)
 
 #Segmentation - thresholding
-thr_img = cv2.adaptiveThreshold(blur_img, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C,
-                                cv2.THRESH_BINARY, 11, 2)
+thr_img = cv2.adaptiveThreshold(blur_img, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 11, 2)
 ##thr_img = cv2.threshold(blur_img, 255, 255, cv2.THRESH_BINARY)[1]
 cv2.imshow('threshold', thr_img)
 ##cv2.imwrite('images/Threshold.jpg', thr_img)
@@ -152,18 +150,18 @@ for i in range(9):
     for j in range(9):
         finalgrid[i][j] = np.array(finalgrid[i][j])
 
-###Remove if any previous images
-##try:
-##    for i in range(9):
-##        for j in range(9):
-##            os.remove('gridcells/cell' + str(i) + str(j) + '.jpg')
-##except:
-##    pass
-##
-###Save the cell images
-##for i in range(9):
-##    for j in range(9):
-##        cv2.imwrite(str('gridcells/cell' + str(i) + str(j) + '.jpg'), finalgrid[i][j])
+##Remove if any previous images
+try:
+    for i in range(9):
+        for j in range(9):
+            os.remove('gridcells/cell' + str(i) + str(j) + '.jpg')
+except:
+    pass
+
+##Save the cell images
+for i in range(9):
+    for j in range(9):
+        cv2.imwrite(str('gridcells/cell' + str(i) + str(j) + '.jpg'), finalgrid[i][j])
 ##print('Saved the cells')
 
 ##Extracting the digits
@@ -188,7 +186,7 @@ for i in range(9):
             ROI = img_gray[y:y+h, x:x+w]
             ROI = scale_and_centre(ROI, 90)
 
-##            cv2.imwrite('Cleanedcells/cell{}{}.png'.format(i,j), ROI)
+            cv2.imwrite('Cleanedcells/cell{}{}.png'.format(i,j), ROI)
 ##            cv2.imshow('cells{}{}'.format(i,j), ROI)
             tmp_grid[i][j] = predict(ROI)
 ##            print(tmp_grid[i][j])
@@ -206,14 +204,12 @@ for i in range(1, 10):
 #All values in a row must be different
 #11 through 19 must be different, 21 through 29 must be all different
 for i in range(1, 10):
-    problem.addConstraint(constraint.AllDifferentConstraint(),
-                          range(i*10+1, i*10+10))
+    problem.addConstraint(constraint.AllDifferentConstraint(), range(i*10+1, i*10+10))
 
 #All values in a column must be different
 #11,21,31...91 must be different, also 12,22,32...92 must be different
 for i in range(1, 10):
-    problem.addConstraint(constraint.AllDifferentConstraint(),
-                          range(10+i, 100+i, 10))
+    problem.addConstraint(constraint.AllDifferentConstraint(), range(10+i, 100+i, 10))
 
 #The nine 3x3 squares must have all different values,
 #Note that each square starts at row indices 1, 4, 7
@@ -227,15 +223,13 @@ for i in [1,4,7]:
         #21,22,23, 31,32,33 have to be all different
         problem.addConstraint(constraint.AllDifferentConstraint(), square)
 
-#Adding a constraint for each number on the board (0 is an "empty" cell)
+#Adding a constraint for each number already present on the board (0 is an empty cell)
 for i in range(9):
     for j in range(9):
         if tmp_grid[i][j] != 0:
             def c(variable_value, value_in_table = tmp_grid[i][j]):
                 if variable_value == value_in_table:
                     return True
-            #Basically we're making sure that our program doesn't change the values already on the board
-            #By telling it that the values NEED to equal the corresponding ones at the base board
             problem.addConstraint(c, [((i+1)*10 + (j+1))])
 
 sol = problem.getSolutions()
@@ -259,8 +253,7 @@ else:
                 font_scale = 1
                 color = (255, 0, 255)
                 thickness = 2
-                cv2.putText(grid, str(solved_sudoku[i][j]),
-                            (int((j+0.5)*cell_h), int((i+0.8)*cell_w)),
+                cv2.putText(grid, str(solved_sudoku[i][j]), (int((j+0.5)*cell_h), int((i+0.8)*cell_w)),
                             font, font_scale, color, thickness)
 
     cv2.imshow('solved sudoku', grid)
