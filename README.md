@@ -34,5 +34,6 @@ Extracted cell:
 Extracting and recognizing the digits in the cell:  
 <img src="https://github.com/Parimala6/Sudoku_solver/blob/main/Cleanedcells/cell03.png" width="100">
 
+Solving the sudoku using python-constraints  
 Solved Sudoku:  
 <img src="https://github.com/Parimala6/Sudoku_solver/blob/main/images/Solved_sudoku.jpg" width="300">  
