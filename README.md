@@ -3,10 +3,7 @@
 Solving Sudoku with OpenCV_Python_CNN  
 
 Sudoku_raw_image:  
-[sudoku_puzzle]<img src="https://github.com/Parimala6/Sudoku_solver/blob/main/images/sudoku4.jpg" width="100">
+<img src="https://github.com/Parimala6/Sudoku_solver/blob/main/images/sudoku4.jpg" width="500">
 
 Solved Sudoku:  
-[solved_sudoku]<img_src="https://github.com/Parimala6/Sudoku_solver/blob/main/images/Solved_sudoku.jpg" width="100">  
-
-
-
+<img src="https://github.com/Parimala6/Sudoku_solver/blob/main/images/Solved_sudoku.jpg" width="500">  
